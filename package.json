@@ -25,7 +25,7 @@
     "next": "12.1.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "yarn": "^1.22.18",
+    "yarn": "^1.22.17",
     "zustand": "https://pkg.csb.dev/pmndrs/zustand/commit/773e2e29/zustand"
   },
   "devDependencies": {
