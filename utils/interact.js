@@ -40,10 +40,6 @@ export const isPublicSaleState = async () => {
   return publicSale
 }
 
-export const isPreSaleState = async () => {
-  const preSale = await nftContract.methods.presaleM().call()
-  return preSale
-}
 
 export const getPrice = async () => {
   var prices = await nftContract.methods.price().call()
@@ -107,7 +103,7 @@ export const presaleMint = async (mintAmount) => {
   } catch (error) {
     return {
       success: false,
-      status: 'Nooo Something went wrong:' + error.message
+      status: 'Nooo Something went wrong: ' + error.message
     }
   }
 }
@@ -122,7 +118,7 @@ export const publicMint = async (mintAmount, price) => {
   if (!window.ethereum.selectedAddress) {
     return {
       success: false,
-      status: 'Wen mint? wen wallect will be connected!'
+      status: 'Wen mint? wen wallet will be connected'
     }
   }
 
@@ -162,7 +158,24 @@ export const publicMint = async (mintAmount, price) => {
   } catch (error) {
     return {
       success: false,
-      status: 'Nooo Something went wrong:' + error.message
+      status: 'Nooo, Something went wrong: ' + error.message
     }
   }
+
+
 }
+
+const ranking = require('/ranking.json');
+
+export const getrare = async () => {
+   // avois refresh page
+    if (document.getElementById("form").value>=1 && document.getElementById("form").value<=4111) {
+        alert(ranking.rarity[document.getElementById("form").value-1]["Rank."])
+    } else {
+    }
+
+
+   // const rar=ranking.rarity[document.getElementById("form").value-1]["Rank."]
+    
+    return 
+  } 

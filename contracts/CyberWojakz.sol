@@ -24,20 +24,16 @@ contract CyberWojakz is
     address proxyRegistryAddress;
 
     uint256 public maxSupply = 4111;
-
     string public baseURI; 
     string public baseExtension = ".json";
-
     bool public paused = false;
-    bool public revealed = false;
-    bool public presaleM = false;
     bool public publicM = false;
 
-    uint256 public price = 1000000000000000; // 0.001 ETH
+    uint256 public price = 1000000000000000000; // base price 1 Metis
 
     Counters.Counter private _tokenIds;
 
-    uint256[] private _teamShares = [45, 20, 10, 20]; // 3 PEOPLE IN THE TEAM
+    uint256[] private _teamShares = [45, 20, 10, 20];
     address[] private _team = [
         0xC80731C21b5A9B3B5dB86F9abCBA49Dd1CF6ed6e, // 45% dev & team
         0xcc2efA16D67E559B7308bD97538Ce16d196cDb4C, // 20% investment fund
@@ -48,7 +44,7 @@ contract CyberWojakz is
     constructor(string memory uri, bytes32 merkleroot, address _proxyRegistryAddress)
         ERC721("Cyberwojakz", "CBWJKZ")
         PaymentSplitter(_team, _teamShares) // Split the payment based on the teamshares percentages
-        ReentrancyGuard() // A modifier that can prevent reentrancy during certain functions
+        ReentrancyGuard() // that can prevent reentrancy during certain functions
     {
         root = merkleroot;
         proxyRegistryAddress = _proxyRegistryAddress;
@@ -62,10 +58,6 @@ contract CyberWojakz is
 
     function _baseURI() internal view override returns (string memory) {
         return baseURI;
-    }
-
-    function reveal() public onlyOwner {
-        revealed = true;
     }
 
     function setMerkleRoot(bytes32 merkleroot) 
@@ -93,47 +85,9 @@ contract CyberWojakz is
         paused = !paused;
     }
 
-    // function togglePresale() public onlyOwner {
-    //     presaleM = !presaleM;
-    // }
-
     function togglePublicSale() public onlyOwner {
         publicM = !publicM;
     }
-
-
-    // function presaleMint(address account, uint256 _amount, bytes32[] calldata _proof)
-    // external
-    // payable
-    // isValidMerkleProof(_proof)
-    // onlyAccounts
-    // {
-    //     require(msg.sender == account,          "CyberWojakz: Not allowed");
-    //     require(presaleM,                       "CyberWojakz: Presale is OFF");
-    //     require(!paused,                        "CyberWojakz: Contract is paused");
-    //     require(
-    //         _amount <= presaleAmountLimit,      "CyberWojakz: You can't mint so much tokens");
-    //     require(
-    //         _presaleClaimed[msg.sender] + _amount <= presaleAmountLimit,  "CyberWojakz: You can't mint so much tokens");
-
-
-    //     uint current = _tokenIds.current();
-
-    //     require(
-    //         current + _amount <= maxSupply,
-    //         "CyberWojakz: max supply exceeded"
-    //     );
-    //     require(
-    //         price * _amount <= msg.value,
-    //         "CyberWojakz: Not enough ethers sent"
-    //     );
-             
-    //     _presaleClaimed[msg.sender] += _amount;
-
-    //     for (uint i = 0; i < _amount; i++) {
-    //         mintInternal();
-    //     }
-    // }
 
     function getPrice() internal view returns (uint256) {
         return price;
@@ -163,7 +117,6 @@ contract CyberWojakz is
             "CyberWojakz: Max supply exceeded"
         );
         require(
-            //price * _amount <= msg.value,
             getPrice() * _amount <= msg.value,
             "CyberWojakz: Not enough Metis sent"
         );
@@ -192,9 +145,6 @@ contract CyberWojakz is
             _exists(tokenId),
             "ERC721Metadata: URI query for nonexistent token"
         );
-        // if (revealed == false) {
-        //     return notRevealedUri;
-        // }
 
         string memory currentBaseURI = _baseURI();
     
@@ -216,10 +166,6 @@ contract CyberWojakz is
     {
         baseExtension = _newBaseExtension;
     }
-
-    // function setNotRevealedURI(string memory _notRevealedURI) public onlyOwner {
-    //     notRevealedUri = _notRevealedURI;
-    // }
 
     function totalSupply() public view returns (uint) {
         return _tokenIds.current();

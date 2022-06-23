@@ -10,7 +10,8 @@ import {
   isPreSaleState,
   presaleMint,
   getPrice,
-  publicMint
+  publicMint,
+  getrare
 } from '../utils/interact'
 
 export default function Mint() {
@@ -30,6 +31,42 @@ export default function Mint() {
   const [mintAmount, setMintAmount] = useState(1)
   const [isMinting, setIsMinting] = useState(false)
   const [onboard, setOnboard] = useState(null)
+  const [rar, setRar] = useState(0)
+
+  // handle form for ranking check
+  async function getrare(totalMinted) {
+    const ranking = require('/ranking.json');
+    if (document.getElementById("form").value <= totalMinted
+        && document.getElementById("form").value <=4110
+        && document.getElementById("form").value >=0){
+          var rar = ranking.rarity[document.getElementById("form").value]["Rank."];
+        }
+        else if(document.getElementById("form").value <0
+        || document.getElementById("form").value >4110)
+        //|| typeof document.getElementById("form").value !== 'number')
+        {
+          var rar = 'input values between 0 and 4110'
+        }
+        else if(document.getElementById("form").value >= totalMinted
+        && document.getElementById("form").value <=4110
+        && document.getElementById("form").value >=0)
+        {
+          var rar = 'not minted yet'
+        }
+
+    setRar(rar)
+  }
+
+  useEffect(() => {
+    getrare()
+  }, [])
+
+
+  const handleClick = e => {
+    e.preventDefault()
+   getrare(totalMinted)
+  }
+  
 
   useEffect(() => {
     setOnboard(initOnboard)
@@ -73,12 +110,10 @@ export default function Mint() {
       setMaxSupply(await getMaxSupply())
       setTotalMinted(await getTotalMinted())
       setPrice(await getPrice())
-
+      setRar(await getrare())
 
       setPaused(await isPausedState())
       setIsPublicSale(await isPublicSaleState())
-      const isPreSale = await isPreSaleState()
-      setIsPreSale(isPreSale)
 
       setMaxMintAmount(
         isPreSale ? config.presaleMaxMintAmount : config.maxMintAmount
@@ -173,6 +208,38 @@ export default function Mint() {
                 : ''}
             </h3>
 
+<form onSubmit = {handleClick}>
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class=" md:w px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="form">
+        ID
+      </label>
+      <input class="appearance-none block bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="form" type="text" placeholder="1"/>
+        <button
+                  className="absolute right-4 bg-indigo-600 transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-white tracking-wide uppercase"
+                  //onClick={() =>
+                    //getrare(mintAmount)
+                  //}
+                >
+                  getrare
+        </button>
+      <p class="text-red-500 text-xs italic">{rar} / 4111</p>
+    </div>
+  </div>
+  <div class="flex flex-wrap -mx-3 mb-6">
+  </div>
+  <div class="flex flex-wrap -mx-3 mb-2">
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <div class="relative">
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
             <div className="flex flex-col md:flex-row md:space-x-14 w-full mt-10 md:mt-14">
               <div className="relative w-full">
                 <div className="font-coiny z-10 absolute top-2 left-2 opacity-80 filter backdrop-blur-lg text-base px-4 py-2 bg-black border border-brand-purple rounded-md flex items-center justify-center text-white font-semibold">
@@ -245,7 +312,7 @@ export default function Mint() {
 
                     <div className="flex items-center space-x-3">
                       <p>
-                        {Number.parseFloat(price * 1e-18* mintAmount).toFixed(//config.price * mintAmount).toFixed(
+                        {Number.parseFloat(price * 1e-18* mintAmount).toFixed(
                           3
                         )}{' '}
                         Metis
@@ -356,3 +423,4 @@ export default function Mint() {
     </div>
   )
 }
+
