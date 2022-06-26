@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+
 import { initOnboard } from '../utils/onboard'
 import { useConnectWallet, useSetChain, useWallets } from '@web3-onboard/react'
 import { config } from '../dapp.config'
@@ -14,7 +16,7 @@ import {
   getrare
 } from '../utils/interact'
 
-export default function Mint() {
+export default function Index() {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
   const [{ chains, connectedChain, settingChain }, setChain] = useSetChain()
   const connectedWallets = useWallets()
@@ -27,46 +29,11 @@ export default function Mint() {
   const [isPublicSale, setIsPublicSale] = useState(false)
   const [isPreSale, setIsPreSale] = useState(false)
 
+
   const [status, setStatus] = useState(null)
   const [mintAmount, setMintAmount] = useState(1)
   const [isMinting, setIsMinting] = useState(false)
   const [onboard, setOnboard] = useState(null)
-  const [rar, setRar] = useState(0)
-
-  // handle form for ranking check
-  async function getrare(totalMinted) {
-    const ranking = require('/ranking.json');
-    if (document.getElementById("form").value <= totalMinted
-        && document.getElementById("form").value <=4110
-        && document.getElementById("form").value >=0){
-          var rar = ranking.rarity[document.getElementById("form").value]["Rank."];
-        }
-        else if(document.getElementById("form").value <0
-        || document.getElementById("form").value >4110)
-        //|| typeof document.getElementById("form").value !== 'number')
-        {
-          var rar = 'input values between 0 and 4110'
-        }
-        else if(document.getElementById("form").value >= totalMinted
-        && document.getElementById("form").value <=4110
-        && document.getElementById("form").value >=0)
-        {
-          var rar = 'not minted yet'
-        }
-
-    setRar(rar)
-  }
-
-  useEffect(() => {
-    getrare()
-  }, [])
-
-
-  const handleClick = e => {
-    e.preventDefault()
-   getrare(totalMinted)
-  }
-  
 
   useEffect(() => {
     setOnboard(initOnboard)
@@ -110,14 +77,13 @@ export default function Mint() {
       setMaxSupply(await getMaxSupply())
       setTotalMinted(await getTotalMinted())
       setPrice(await getPrice())
-      setRar(await getrare())
-
       setPaused(await isPausedState())
       setIsPublicSale(await isPublicSaleState())
 
       setMaxMintAmount(
         isPreSale ? config.presaleMaxMintAmount : config.maxMintAmount
       )
+      
     }
 
     init()
@@ -184,7 +150,7 @@ export default function Mint() {
           <div className="relative z-1 md:max-w-3xl w-full bg-gray-900/90 filter backdrop-blur-sm py-4 rounded-md px-2 md:px-10 flex flex-col items-center">
             {wallet && (
               <button
-                className="absolute right-4 bg-indigo-600 transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-white tracking-wide uppercase"
+                className="absolute right-4 bg-brand-blue transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-black tracking-wide uppercase"
                 onClick={() =>
                   disconnect({
                     label: wallet.label
@@ -194,10 +160,10 @@ export default function Mint() {
                 Disconnect
               </button>
             )}
-            <h1 className="font-coiny uppercase font-bold text-4xl md:text-5xl bg-gradient-to-br from-brand-pink to-brand-purple bg-clip-text text-transparent mt-3">
+            <h1 className="font-coiny uppercase font-bold text-4xl md:text-5xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent mt-3">
               CyberWojakz
             </h1>
-            <h1 className="font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br from-brand-green to-brand-blue bg-clip-text text-transparent mt-3">
+            <h1 className="font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br from-brand-pink to-brand-purple bg-clip-text text-transparent mt-3">
               {paused ? 'Paused' : 'Public Sale'}
             </h1>
             <h3 className="text-sm text-pink-200 tracking-widest mt-4">
@@ -208,37 +174,29 @@ export default function Mint() {
                 : ''}
             </h3>
 
-<form onSubmit = {handleClick}>
-  <div class="flex flex-wrap -mx-3 mb-6">
-    <div class=" md:w px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="form">
-        ID
-      </label>
-      <input class="appearance-none block bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="form" type="text" placeholder="1"/>
-        <button
-                  className="absolute right-4 bg-indigo-600 transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-white tracking-wide uppercase"
-                  //onClick={() =>
-                    //getrare(mintAmount)
-                  //}
-                >
-                  getrare
-        </button>
-      <p class="text-red-500 text-xs italic">{rar} / 4111</p>
-    </div>
-  </div>
-  <div class="flex flex-wrap -mx-3 mb-6">
-  </div>
-  <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <div class="relative">
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-
+            <div className="h-full w-full container max-w-5xl mx-auto flex flex-col items-center pt-4">
+                    <div className="flex flex-col items-center max-w-4xl w-full">
+                      <Link href="/mint" passHref>
+                        <a className="mt-1 font-coiny uppercase inline-flex items-center px-6 oy-2 text-sm sm:text-2xl md:text-3xl font-medium text-center rounded text-white bg-brand-pink hover:bg-brand-blue hover:text-brand-pink">
+                          Check Rarity
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-6 h-6 ml-2 mt-0.5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M17 8l4 4m0 0l-4 4m4-4H3"
+                            />
+                          </svg>
+                        </a>
+                      </Link>
+                    </div>
+            </div>
 
             <div className="flex flex-col md:flex-row md:space-x-14 w-full mt-10 md:mt-14">
               <div className="relative w-full">
