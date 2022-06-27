@@ -81,7 +81,7 @@ export default function Index() {
       setIsPublicSale(await isPublicSaleState())
 
       setMaxMintAmount(
-        isPreSale ? config.presaleMaxMintAmount : config.maxMintAmount
+        config.maxMintAmount
       )
       
     }
@@ -289,7 +289,7 @@ export default function Index() {
                         : 'bg-gradient-to-br from-brand-purple to-brand-pink shadow-lg hover:shadow-pink-400/50'
                     } font-coiny mt-12 w-full px-6 py-3 rounded-md text-2xl text-white mx-4 tracking-wide uppercase`}
                     disabled={paused || isMinting}
-                    onClick={isPreSale ? presaleMintHandler : publicMintHandler}
+                    onClick={publicMintHandler}
                   >
                     {isMinting ? 'Minting...' : 'Mint'}
                   </button>

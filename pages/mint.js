@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from 'react'
-import React from 'react';
 import Link from 'next/link'
 
 
@@ -10,7 +9,7 @@ import {
 
   import { ProgressBar } from "react-progressbar-fancy";
 
-export default function mint() {
+export default function Mint() {
 
     const [Rank, setRank] = useState(0)
     const [Background, setBackground] = useState(0)
@@ -203,7 +202,7 @@ export default function mint() {
             <form onSubmit = {handleClick}>
                 <div className="flex flex-wrap -mx-3 mb-6">
                     <div className=" md:w px-3 mb-6 md:mb-0 mt-36">
-                        <label className="ml-24 block uppercase tracking-wIDe text-brand-blue text-xs font-bold mb-2 mt-56" for="forme">
+                        <label className="ml-24 block uppercase tracking-wIDe text-brand-blue text-xs font-bold mb-2 mt-56" htmlFor='forme'>
                             input ID [0 to 4110]
                         </label>
                         <input className="ml-24 appearance-none block bg-gray-200 text-black border border-brand-pink rounded py-3 px-1 mb-3 leading-tight focus:outline-none focus:bg-white" ID="forme" type="text" placeholder="0"/>

@@ -23,6 +23,7 @@
     "autoprefixer": "^10.4.7",
     "bnc-onboard": "^1.38.3",
     "dotenv": "^16.0.1",
+    "eslint-config-prettier": "^8.5.0",
     "install": "^0.13.0",
     "ipfs-http-client": "^57.0.3",
     "merkletreejs": "^0.2.32",
