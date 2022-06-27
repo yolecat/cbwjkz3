@@ -29,7 +29,7 @@ export default function mint() {
     const [Scolor, setScolor] = useState('snow')
     const [rarityLabel, setRarityLabel] = useState('Rarity')
     const [URL, setURL] = useState('https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/562.png')
-    const [ID, setID] = useState('x')
+    const [IDi, setIDi] = useState('x')
 
 
 
@@ -37,29 +37,29 @@ export default function mint() {
     async function getrare() {
       const ranking = require('/ranking.json')
       setTotalMinted(await getTotalMinted())
-      const ID=document.getElementById("forme").value
-      setID(ID)
-      if ( ID < totalMinted
-          && ID <=4110
-          && ID >=0)
+      const IDi=document.getElementByIDi("forme").value
+      setIDi(IDi)
+      if ( IDi < totalMinted
+          && IDi <=4110
+          && IDi >=0)
           {
-              var in_val=ID;
-            var Rank_v = ranking.rarity[ID]["Rank"]
-            var Background_v = ranking.rarity[ID]["Background"];
-            var Skin_v = ranking.rarity[ID]["Skin"];
-            var Tattoo_v = ranking.rarity[ID]["Tattoo"];
-            var Face_v = ranking.rarity[ID]["Face"];
-            var Clothes_v = ranking.rarity[ID]["Clothes"];
-            var Necklace_v = ranking.rarity[ID]["Necklace"];
-            var Eyewear_v = ranking.rarity[ID]["Eyewear"];
-            var Accessory_v = ranking.rarity[ID]["Accessory"];
-            var rarityScore_v = ranking.rarity[ID]["Rarity Score"];
+              var in_val=IDi;
+            var Rank_v = ranking.rarity[IDi]["Rank"]
+            var Background_v = ranking.rarity[IDi]["Background"];
+            var Skin_v = ranking.rarity[IDi]["Skin"];
+            var Tattoo_v = ranking.rarity[IDi]["Tattoo"];
+            var Face_v = ranking.rarity[IDi]["Face"];
+            var Clothes_v = ranking.rarity[IDi]["Clothes"];
+            var Necklace_v = ranking.rarity[IDi]["Necklace"];
+            var Eyewear_v = ranking.rarity[IDi]["Eyewear"];
+            var Accessory_v = ranking.rarity[IDi]["Accessory"];
+            var rarityScore_v = ranking.rarity[IDi]["Rarity Score"];
 
           }
-          else if(ID <0
-                  || ID >4110)
+          else if(IDi <0
+                  || IDi >4110)
           {
-            var in_val=ID;
+            var in_val=IDi;
             var rarityLabel_v = 'input values between 0 and 4110'
             var Rank_v = 0
             var Background_v = 0
@@ -72,12 +72,12 @@ export default function mint() {
             var Accessory_v = 0
             var rarityScore_v= 0
           }
-          else if(ID >= totalMinted
-                  && ID <= 4110
-                  && ID >= 0)
+          else if(IDi >= totalMinted
+                  && IDi <= 4110
+                  && IDi >= 0)
           {
             var rarityLabel_v="not minted yet"
-            var in_val=ID;
+            var in_val=IDi;
             var Rank_v = 0
             var Background_v = 0
             var Skin_v = 0
@@ -124,9 +124,9 @@ export default function mint() {
           var Pcolor_v="snow"
           var Scolor_v="snow"
         }
-        var a = document.getElementById("id1");
+        var a = document.getElementByIDi("IDi1");
         a.style.color = Pcolor_v;
-        var URL_v = "https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/"+ID+".png";
+        var URL_v = "https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/"+IDi+".png";
 
       setRank(Rank_v)
       setBackground(Background_v)
@@ -181,7 +181,7 @@ export default function mint() {
                             <path
                               strokeLinecap="round"
                               strokeLinejoin="round"
-                              strokeWidth="2"
+                              strokeWIDith="2"
                               d="M17 8l4 4m0 0l-4 4m4-4H3"
                             />
                           </svg>
@@ -203,12 +203,12 @@ export default function mint() {
             <form onSubmit = {handleClick}>
                 <div className="flex flex-wrap -mx-3 mb-6">
                     <div className=" md:w px-3 mb-6 md:mb-0 mt-36">
-                        <label className="ml-24 block uppercase tracking-wide text-brand-blue text-xs font-bold mb-2 mt-56" for="forme">
-                            input ID [0 to 4110]
+                        <label className="ml-24 block uppercase tracking-wIDie text-brand-blue text-xs font-bold mb-2 mt-56" for="forme">
+                            input IDi [0 to 4110]
                         </label>
-                        <input className="ml-24 appearance-none block bg-gray-200 text-black border border-brand-pink rounded py-3 px-1 mb-3 leading-tight focus:outline-none focus:bg-white" id="forme" type="text" placeholder="0"/>
+                        <input className="ml-24 appearance-none block bg-gray-200 text-black border border-brand-pink rounded py-3 px-1 mb-3 leading-tight focus:outline-none focus:bg-white" IDi="forme" type="text" placeholder="0"/>
                         <button
-                            className="ml-28 text-center rounded text-white bg-brand-pink transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-white tracking-wide uppercase hover:bg-brand-blue hover:text-brand-pink"
+                            className="ml-28 text-center rounded text-white bg-brand-pink transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-white tracking-wIDie uppercase hover:bg-brand-blue hover:text-brand-pink"
                         >
                             Check rarity
                         </button> 
@@ -226,8 +226,8 @@ export default function mint() {
                     </div>
                 </div>
             </form>
-            <div className='text-4xl flex justify-center items-center'><h1 id="id1">{rarityLabel}</h1></div>
-            <div className='text-xl flex justify-center items-center'><h1 id="id1">CyberWojakz #{ID}</h1></div>
+            <div className='text-4xl flex justify-center items-center'><h1 IDi="IDi1">{rarityLabel}</h1></div>
+            <div className='text-xl flex justify-center items-center'><h1 IDi="IDi1">CyberWojakz #{IDi}</h1></div>
             <div className='ml-16 flex justify-center items-center border border-brand-blue photo'>
                 <img src= {URL}/>
             </div>
