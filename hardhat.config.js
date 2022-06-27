@@ -24,11 +24,16 @@ module.exports = {
       url: `${process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL}`,
       accounts: [`0x${process.env.METAMASK_PRIVATE_KEY}`]
     },
-    metis: {
+    stardust: {
       url: "https://stardust.metis.io/?owner=588",
       accounts:
         process.env.METAMASK_PRIVATE_KEY !== undefined ? [process.env.METAMASK_PRIVATE_KEY] : [],
     },
+    andromeda: {
+      url: "https://andromeda.metis.io/?owner=1088",
+      accounts:
+        process.env.METAMASK_PRIVATE_KEY !== undefined ? [process.env.METAMASK_PRIVATE_KEY] : [],
+    }
   },
   paths: {
     sources: './contracts',

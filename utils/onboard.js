@@ -42,6 +42,12 @@ const initOnboard = init({
       token: 'tMetis',
       label: 'Metis Stardust Testnet',
       rpcUrl: "https://stardust.metis.io/?owner=588"
+    },
+    {
+      id: '0x440',
+      token: 'Metis',
+      label: 'Andromeda',
+      rpcUrl: "https://andromeda.metis.io/?owner=1088"
     }
     // {
     //   id: '0x89',

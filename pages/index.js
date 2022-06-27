@@ -323,7 +323,7 @@ export default function Index() {
                 Verified Contract
               </h3>
               <a
-                href={`https://stardust-explorer.metis.io/address/${config.contractAddress}#readContract`}
+                href={`https://andromeda-explorer.metis.io/address/${config.contractAddress}#readContract`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 mt-2"
@@ -340,7 +340,7 @@ export default function Index() {
                 Minting CyberWojakz NFTs will allow you to play the game to be released, in which you will be able to mint exclusive NFTs. If you don’t own NFTs from the classic 4111 collection, you will only be able to get exclusive ones by buying them on the secondary market. Exclusive NFTs will grant you special accesses and bonuses under various forms (cannot tell you more just now).
               </a>
               <img
-                  src="/images/exclusive_DICE.jpeg"
+                  src="/images/DICE2.png"
                   className="object-cover sm:h-[600px] md:w-[400] rounded-md mt-4"
                 />
               <h2 className="font-coiny uppercase font-bold text-2xl md:text-3xl text-brand-pink mt-8">

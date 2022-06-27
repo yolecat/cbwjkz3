@@ -35,8 +35,8 @@ contract CyberWojakz is
 
     uint256[] private _teamShares = [45, 20, 10, 20];
     address[] private _team = [
-        0xC80731C21b5A9B3B5dB86F9abCBA49Dd1CF6ed6e, // 45% dev & team
-        0xcc2efA16D67E559B7308bD97538Ce16d196cDb4C, // 20% investment fund
+        0xC80731C21b5A9B3B5dB86F9abCBA49Dd1CF6ed6e, // 45% for dev & team
+        0xcc2efA16D67E559B7308bD97538Ce16d196cDb4C, // 20% future devs
         0x7Da33aF87EFf27B4B61ec9c329d5aE611D519D58, // 10% mini games
         0x87a614b076A1021E59Aba912235765f63dE85641 // 20% Marketing
     ];
