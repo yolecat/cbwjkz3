@@ -348,7 +348,7 @@ export default function Index() {
               </h2>
               <a className="text-white mt-3">
               The art is of great quality. Made by talented artists, each CyberWojakz NFT is 2960×2960 pixels. There are 4111 total unique classic CyberWojakz NFTs, amongst which 7 legendaries.
-              Waiting for the rarity tool when the whole collection will be minted, check your trait rarity here: https://cyberwojakz.io/rarity/
+              Waiting for the rarity tool when the whole collection will be minted, check your CyberWojakz rank and rarity on the rarity page (link top of page).
               </a>
               <img
                   src="/images/GIF2.gif"

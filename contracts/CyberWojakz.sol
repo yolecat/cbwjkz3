@@ -29,7 +29,7 @@ contract CyberWojakz is
     bool public paused = false;
     bool public publicM = false;
 
-    uint256 public price = 1000000000000000000; // base price 1 Metis
+    uint256 public price = 1000000000000000; // base price 1 Metis
 
     Counters.Counter private _tokenIds;
 
