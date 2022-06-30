@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+
+
 import { initOnboard } from '../utils/onboard'
 import { useConnectWallet, useSetChain, useWallets } from '@web3-onboard/react'
 import { config } from '../dapp.config'
@@ -126,31 +128,97 @@ export default function Index() {
     setIsMinting(false)
   }
 
+
   return (
-    <div className="min-h-screen h-full w-full overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
-      <div className="relative w-full h-full flex flex-col items-center justify-center">
+    <>      
+        {/* <video className='w-full h-full cover' loop autoPlay muted>         
+        <source src="/videos/car.mp4" type="video/mp4"/>       
+      </video> */}
+    <div className="min-h-screen h-full w-full mt-80 overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
+
+     
         <img
           src="/images/blur.jpeg"
+          className="animate-pulse-slow absolute top-[460px] inset-auto block w-full min-h-full object-cover"
+        />
+        <img
+          src="/images/blur.jpeg"
+          className="animate-pulse-slow absolute top-[960px] inset-auto block w-full min-h-full object-cover"
+        />
+        <img
+          src="/images/blur.jpeg"
+          className="animate-pulse-slow absolute top-[1920px] inset-auto block w-full min-h-full object-cover"
+        />
+           <img
+          src="/images/blur.jpeg"
           className="animate-pulse-slow absolute inset-auto block w-full min-h-full object-cover"
+        />
+         <img
+          src="/images/blur.jpeg"
+          className="animate-pulse-slow absolute top-[00px] inset-auto block w-full min-h-full object-cover"
+        />
+        <img
+          src="/images/blur.jpeg"
+          className="animate-pulse-slow absolute top-[2700px] inset-auto block w-full min-h-full object-cover"
         />
        <img
           src="/images/stars.png"
           className="animate-pulse-slow absolute top-[0px] block w-full min-h-fit object-cover opacity-90"
         />
+        
         <img
           src="/images/stars.png"
           className="animate-pulse-slow absolute top-[960px] block w-full min-h-fit object-cover opacity-90"
-        />
+        />  
         <img
           src="/images/stars.png"
           className="animate-pulse-slow absolute top-[1920px] block w-full min-h-fit object-cover opacity-90"
         />
+        <img
+          src="/images/stars.png"
+          className="animate-pulse-slow absolute top-[2880px] block w-full min-h-fit object-cover opacity-90"
+        /> 
+        {/* <img
+            src="/images/grid_22.png"
+            className=" absolute top-[0px] block w-full min-h-fit object-cover opacity-20"
+        /> */}
+        <img
+            src="/images/grid_22.png"
+            className=" absolute top-[860px] block w-full min-h-fit object-cover opacity-20"
+        />
+        <img
+            src="/images/grid_22.png"
+            className=" absolute top-[1940px] block w-full min-h-fit object-cover opacity-20"
+        />
+        <img
+            src="/images/grid_22.png"
+            className=" absolute top-[3020px] block w-full min-h-fit object-cover opacity-20"
+        />
+        <img
+          src="/images/Synthwave-floor2.png"
+          className="animate-pulse-slow  absolute top-[000px] inset-auto block w-full min-h-full object-cover"
+        />
+          <img
+          src="/images/synthwave-sol.png"
+          className="photo5 animate-pulse-slow  absolute top-[-500px] inset-auto block w-full min-h-full object-cover"
+        />
+                        <img
+            src="/images/palms.png"
+            className="absolute right-[-100px] top-[300px] block photo2 opacity-100"
+        />
+        <img
+            src="/images/palms.png"
+            className="absolute left-[-100px] top-[370px] block photo2 opacity-100"
+        />
+      <div className="absolute w-full h-full flex flex-col items-center justify-center mt-96">
 
-        <div className="flex flex-col items-center justify-center h-full w-full px-2 md:px-10">
-          <div className="relative z-1 md:max-w-3xl w-full bg-gray-900/90 filter backdrop-blur-sm py-4 rounded-md px-2 md:px-10 flex flex-col items-center">
+        <div className="flex flex-col mt-96 items-center justify-center h-full w-full px-2 md:px-10">
+          <div className="relative z-1 mt-96 md:max-w-3xl w-full bg-gray-900/90 filter backdrop-blur-sm py-4 rounded-md px-2 md:px-10 flex flex-col items-center">
+            
+  
             {wallet && (
               <button
-                className="absolute right-4 bg-brand-blue transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-black tracking-wide uppercase"
+                className="absolute top-[650px] right-4 bg-brand-blue transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-black tracking-wide uppercase"
                 onClick={() =>
                   disconnect({
                     label: wallet.label
@@ -160,11 +228,14 @@ export default function Index() {
                 Disconnect
               </button>
             )}
-            <h1 className="font-coiny uppercase font-bold text-4xl md:text-5xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent mt-3">
-              CyberWojakz
+            <h1 className="font-coiny uppercase font-bold text-4xl md:text-5xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent mt-96">
+            <img 
+            src="/images/logo_transparent.png"
+            className="photo2 relative left-[10px] absolute top-[180px] block w-full min-h-fit object-cover opacity-90"
+            />
             </h1>
-            <h1 className="font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br from-brand-pink to-brand-purple bg-clip-text text-transparent mt-3">
-              {paused ? 'Paused' : 'Public Sale'}
+            <h1 className="mt-16 font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent mt-3">
+              {paused ? 'Mint paused' : 'Mint LIVE'}
             </h1>
             <h3 className="text-sm text-pink-200 tracking-widest mt-4">
               {wallet?.accounts[0]?.address
@@ -197,6 +268,7 @@ export default function Index() {
                       </Link>
                     </div>
             </div>
+            
 
             <div className="flex flex-col md:flex-row md:space-x-14 w-full mt-10 md:mt-14">
               <div className="relative w-full">
@@ -215,6 +287,7 @@ export default function Index() {
 
               <div className="flex flex-col items-center w-full px-4 mt-16 md:mt-0">
                 <div className="font-coiny flex items-center justify-between w-full">
+                
                   <button
                     className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg bg-gray-300 font-bold rounded-md"
                     onClick={incrementMintAmount}
@@ -377,8 +450,23 @@ export default function Index() {
 
           </div>
         </div>
+
       </div>
+      <div className='w-100 h-100'>
+      <a href="https://cyberwojakz.io/" target="_blank" rel="noreferrer">
+      <img
+            src="/images/logo_transparent.png"
+            className="absolute left-[450px] top-[3200px] block photo2 opacity-100"
+        />
+                </a>
+
+               
+            </div>
+          
     </div>
+
+    </>
+
   )
 }
 

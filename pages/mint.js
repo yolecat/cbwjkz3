@@ -167,39 +167,70 @@ export default function Mint() {
 
     return (
         <>
-     <div className="ml-54 h-full w-full container max-w-5xl mx-auto flex flex-col items-center pt-4 relative z-20">
-                    <div className="flex flex-col items-center max-w-4xl w-full">
-                      <Link href="/" passHref>
-                        <a className="mt-1 font-coiny uppercase inline-flex items-center px-6 oy-2 text-sm sm:text-2xl md:text-3xl font-medium text-center rounded text-white bg-brand-blue hover:bg-brand-pink hover:text-brand-blue">
-                          Back to mint
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-6 h-6 ml-2 mt-0.5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWIDth="2"
-                              d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                          </svg>
-                        </a>
-                      </Link>
-                    </div>
-            </div>
+
 
 
     <div className="w-full flex justify-center items-center h-screen text-brand-blue bg-brand-background">
         <div className="relative w-full h-full flex flex-col items-center justify-center z-0">
+     
+          <div className="flex flex-col mt-[-660px] items-center max-w-4xl w-full absolute z-30">
+            <Link href="/" passHref>
+              <a className="mt-0 font-coiny uppercase inline-flex items-center px-6 oy-2 text-sm sm:text-2xl md:text-3xl font-medium text-center rounded text-white bg-brand-blue hover:bg-brand-pink hover:text-brand-blue">
+                Back to mint
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6 ml-2 mt-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWIDth="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+            </Link>
+          </div>
         <img
           src="/images/blur.jpeg"
-          className="animate-pulse-slow absolute inset-auto block w-full min-h-full object-cover opacity-0"
+          className=" animate-pulse-slow absolute inset-auto block w-full min-h-full opacity-100"
         />
         
-        <div className='bg-brand-background w-96 h-128 relative z-10'>
+        <img
+            src="/images/stars.png"
+            className="animate-pulse-slow absolute top-[0px] block w-full min-h-fit object-cover opacity-90"
+        />
+        <img 
+            src="/images/grid_22.png"
+            className="animate-pulse-slow absolute top-[0px] block w-full min-h-fit object-cover opacity-5"
+        />
+        <a href="https://cyberwojakz.io/" target="_blank" rel="noreferrer">
+            <img 
+            src="/images/logo_transparent.png"
+            className="photo left-[10px] absolute top-[-20px] block w-full min-h-fit object-cover opacity-90"
+            />
+        </a>
+               <img
+          src="/images/synthwave-sol.png"
+          className="photo5 left-[20px] bottom-[-400px] absolute inset-auto block w-full min-h-full opacity-70"
+        />
+                <img
+            src="/images/Synthwave-floor2.png"
+            className=" absolute right-[10px] top-[190px] block w-full min-h-fit object-cover opacity-100"
+        /> 
+         <img
+          src="/images/body_wojak.png"
+          className="photo3 left-[-20px] bottom-[-350px] absolute inset-auto block w-full min-h-full opacity-100"
+        />
+         <img
+            src="/images/palms.png"
+            className=" photo4 absolute right-[10px] top-[400px] block w-full min-h-fit object-cover opacity-100"
+        /> 
+
+        <div className='bg-brand-background w-96 h-128 absolute z-20'>
             {/* Form */}
             <form onSubmit = {handleClick}>
                 <div className="flex flex-wrap -mx-3 mb-6">
@@ -216,6 +247,7 @@ export default function Mint() {
                         <p className="ml-28 mt-3 text-brand-blue text-xs italic">Total minted: {totalMinted} / 4111</p>
                     </div>
                 </div>
+
                 <div className="flex flex-wrap -mx-3"></div>
                 <div className="flex flex-wrap -mx-3 mb-2">
                     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -234,6 +266,7 @@ export default function Mint() {
             </div>
             <div className='text-xl text-brand-pink flex justify-center items-center mt-2'><h1>RANK: {Rank} / 4111</h1></div>
             <div className='text-brand-blue flex justify-center items-center'><h1>Rarity score: {rarityScore.toFixed(2)}</h1></div>
+            
             {/* Progress bars */}
             <div className="App">
                 <ProgressBar
