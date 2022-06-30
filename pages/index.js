@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-
-
 import { initOnboard } from '../utils/onboard'
 import { useConnectWallet, useSetChain, useWallets } from '@web3-onboard/react'
 import { config } from '../dapp.config'
@@ -131,9 +129,7 @@ export default function Index() {
 
   return (
     <>      
-        {/* <video className='w-full h-full cover' loop autoPlay muted>         
-        <source src="/videos/car.mp4" type="video/mp4"/>       
-      </video> */}
+
     <div className="min-h-screen h-full w-full mt-80 overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
 
      
@@ -178,10 +174,7 @@ export default function Index() {
           src="/images/stars.png"
           className="animate-pulse-slow absolute top-[2880px] block w-full min-h-fit object-cover opacity-90"
         /> 
-        {/* <img
-            src="/images/grid_22.png"
-            className=" absolute top-[0px] block w-full min-h-fit object-cover opacity-20"
-        /> */}
+
         <img
             src="/images/grid_22.png"
             className=" absolute top-[860px] block w-full min-h-fit object-cover opacity-20"
@@ -195,11 +188,11 @@ export default function Index() {
             className=" absolute top-[3020px] block w-full min-h-fit object-cover opacity-20"
         />
         <img
-          src="/images/Synthwave-floor2.png"
+          src="/images/Synthwave_floor2.png"
           className="animate-pulse-slow  absolute top-[000px] inset-auto block w-full min-h-full object-cover"
         />
           <img
-          src="/images/synthwave-sol.png"
+          src="/images/Synthwave_sol.png"
           className="photo5 animate-pulse-slow  absolute top-[-500px] inset-auto block w-full min-h-full object-cover"
         />
                         <img

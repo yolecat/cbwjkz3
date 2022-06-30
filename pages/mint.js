@@ -2,9 +2,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-import { initOnboard } from '../utils/onboard'
-import { useConnectWallet, useSetChain, useWallets } from '@web3-onboard/react'
-import { config } from '../dapp.config'
 import {
     getTotalMinted,
   } from '../utils/interact'
@@ -214,11 +211,11 @@ export default function Mint() {
             />
         </a>
                <img
-          src="/images/synthwave-sol.png"
+          src="/images/Synthwave_sol.png"
           className="photo5 left-[20px] bottom-[-400px] absolute inset-auto block w-full min-h-full opacity-70"
         />
                 <img
-            src="/images/Synthwave-floor2.png"
+            src="/images/Synthwave_floor2.png"
             className=" absolute right-[10px] top-[190px] block w-full min-h-fit object-cover opacity-100"
         /> 
          <img
