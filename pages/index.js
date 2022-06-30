@@ -195,7 +195,7 @@ export default function Index() {
           src="/images/Synthwave_sol.png"
           className="photo5 animate-pulse-slow  absolute top-[-500px] inset-auto block w-full min-h-full object-cover"
         />
-                        <img
+        <img
             src="/images/palms.png"
             className="absolute right-[-100px] top-[300px] block photo2 opacity-100"
         />
@@ -447,15 +447,14 @@ export default function Index() {
       </div>
       <div className='w-100 h-100'>
       <a href="https://cyberwojakz.io/" target="_blank" rel="noreferrer">
-      <img
+        <img
             src="/images/logo_transparent.png"
             className="absolute left-[450px] top-[3200px] block photo2 opacity-100"
         />
-                </a>
+      </a>
 
-               
-            </div>
-          
+      </div>
+
     </div>
 
     </>
