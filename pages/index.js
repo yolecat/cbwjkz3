@@ -293,8 +293,8 @@ export default function Index() {
                 />
               </div>
 
-              <div className="flex flex-col items-center w-full px-4 mt-16 md:mt-0">
-                <div className="font-coiny flex items-center justify-between w-full">
+              <div className="flex flex-col items-center w-full px-4 mt-16 md:mt-0 ">
+                <div className="font-coiny flex items-center justify-between w-full relative z-35 ">
                 
                   <button
                     className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg bg-gray-300 font-bold rounded-md"
@@ -517,7 +517,7 @@ export default function Index() {
                 20% marketing. Part of the growth of the project, get visbility, reach more people, which grows the community.
               </a>
               <a className="text-white mt-3">
-                10% mini games. Allocated for the specific developments of mini games. Mini games are small dapps made for the community, meaning we wont earn anything from it. The goal is to build a nice and warm "CyberWojakz ecosystem", with multiple ways to interact within the project. an example of mini game would be a casino dapp where NPCs can play to earn internet money.
+                10% mini games. Allocated for the specific developments of mini games. Mini games are small dapps made for the community, meaning we wont earn anything from it. The goal is to build a nice and warm CyberWojakz ecosystem, with multiple ways to interact within the project. an example of mini game would be a casino dapp where NPCs can play to earn internet money.
               </a>
 
               <h2 className="font-coiny uppercase font-bold text-2xl md:text-3xl text-brand-blue mt-8">
