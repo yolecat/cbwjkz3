@@ -195,7 +195,7 @@ export default function Index() {
           src="/images/Synthwave_sol.png"
           className="photo5 animate-pulse-slow  absolute top-[-500px] inset-auto block w-full min-h-full object-cover"
         />
-        <img
+                        <img
             src="/images/palms.png"
             className="absolute right-[-100px] top-[300px] block photo2 opacity-100"
         />
@@ -211,7 +211,7 @@ export default function Index() {
   
             {wallet && (
               <button
-                className="absolute top-[650px] right-4 bg-brand-blue transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-black tracking-wide uppercase"
+                className="absolute top-[680px] right-4 bg-brand-blue transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-black tracking-wide uppercase"
                 onClick={() =>
                   disconnect({
                     label: wallet.label
@@ -224,10 +224,10 @@ export default function Index() {
             <h1 className="font-coiny uppercase font-bold text-4xl md:text-5xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent mt-96">
             <img 
             src="/images/logo_transparent.png"
-            className="photo2 relative left-[10px] absolute top-[180px] block w-full min-h-fit object-cover opacity-90"
+            className="photo2 relative left-[10px] absolute top-[200px] block w-full min-h-fit object-cover opacity-90"
             />
             </h1>
-            <h1 className="mt-16 font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent mt-3">
+            <h1 className="mt-24 font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent mt-3">
               {paused ? 'Mint paused' : 'Mint LIVE'}
             </h1>
             <h3 className="text-sm text-pink-200 tracking-widest mt-4">
@@ -447,14 +447,15 @@ export default function Index() {
       </div>
       <div className='w-100 h-100'>
       <a href="https://cyberwojakz.io/" target="_blank" rel="noreferrer">
-        <img
+      <img
             src="/images/logo_transparent.png"
             className="absolute left-[450px] top-[3200px] block photo2 opacity-100"
         />
-      </a>
+                </a>
 
-      </div>
-
+               
+            </div>
+          
     </div>
 
     </>

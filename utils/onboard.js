@@ -16,7 +16,7 @@ const injected = injectedModule()
 const walletConnect = walletConnectModule()
 const coinbaseWallet = coinbaseModule()
 
-const initOnboard = init({
+const initOnboard = init ({
   wallets: [walletConnect, coinbaseWallet, injected, fortmatic],
   chains: [
     // {

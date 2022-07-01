@@ -33,6 +33,8 @@
     "react-dom": "^17.0.2",
     "react-progressbar-fancy": "^1.1.4",
     "reactjs-videobg": "^1.3.0",
+    "web3": "^1.7.4",
+    "webpack": "^5.73.0",
     "yarn": "^1.22.17",
     "zustand": "https://pkg.csb.dev/pmndrs/zustand/commit/773e2e29/zustand"
   },
