@@ -78,6 +78,10 @@ html {
   height: 250px;
   width: 250px;
 }
+.photo7 {
+  height: 350px;
+  width: 350px;
+}
 .photo2 {
   height: 500px;
   width: 500px;
@@ -91,10 +95,15 @@ html {
   width: 600px;
 }
 .photo4 {
-  height: 700px;
+  height: 900px;
   width: 600px;
 }
 .photo5 {
-  height: 1300px;
-  width: 1700px;
+  height: 1800px;
+  width: 2200px;
 }
+.photo8 {
+  height: 1500px;
+  width: 2200px;
+}
+

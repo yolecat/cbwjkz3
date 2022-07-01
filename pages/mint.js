@@ -212,7 +212,7 @@ export default function Mint() {
         </a>
                <img
           src="/images/Synthwave_sol.png"
-          className="photo5 left-[20px] bottom-[-400px] absolute inset-auto block w-full min-h-full opacity-70"
+          className="photo8 left-[20px] bottom-[-450px] absolute inset-auto block w-full min-h-full opacity-70"
         />
                 <img
             src="/images/Synthwave_floor2.png"
@@ -224,7 +224,7 @@ export default function Mint() {
         />
          <img
             src="/images/palms.png"
-            className=" photo4 absolute right-[10px] top-[400px] block w-full min-h-fit object-cover opacity-100"
+            className=" photo4 absolute right-[10px] top-[200px] block w-full min-h-fit object-cover opacity-100"
         /> 
 
         <div className='bg-brand-background w-96 h-128 absolute z-20'>

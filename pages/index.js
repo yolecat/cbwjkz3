@@ -130,7 +130,7 @@ export default function Index() {
   return (
     <>      
 
-    <div className="min-h-screen h-full w-full mt-80 overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
+    <div className="min-h-screen h-full w-full overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
 
      
         <img
@@ -174,7 +174,14 @@ export default function Index() {
           src="/images/stars.png"
           className="animate-pulse-slow absolute top-[2880px] block w-full min-h-fit object-cover opacity-90"
         /> 
-
+        <img
+          src="/images/stars.png"
+          className="animate-pulse-slow absolute top-[3840px] block w-full min-h-fit object-cover opacity-90"
+        /> 
+        <img
+          src="/images/stars.png"
+          className="animate-pulse-slow absolute top-[4800px] block w-full min-h-fit object-cover opacity-90"
+        /> 
         <img
             src="/images/grid_22.png"
             className=" absolute top-[860px] block w-full min-h-fit object-cover opacity-20"
@@ -188,14 +195,22 @@ export default function Index() {
             className=" absolute top-[3020px] block w-full min-h-fit object-cover opacity-20"
         />
         <img
+            src="/images/grid_22.png"
+            className=" absolute top-[4100px] block w-full min-h-fit object-cover opacity-20"
+        />
+        <img
+            src="/images/grid_22.png"
+            className=" absolute top-[5180px] block w-full min-h-fit object-cover opacity-20"
+        />
+        <img
           src="/images/Synthwave_floor2.png"
           className="animate-pulse-slow  absolute top-[000px] inset-auto block w-full min-h-full object-cover"
         />
-          <img
+        <img
           src="/images/Synthwave_sol.png"
           className="photo5 animate-pulse-slow  absolute top-[-500px] inset-auto block w-full min-h-full object-cover"
         />
-                        <img
+        <img
             src="/images/palms.png"
             className="absolute right-[-100px] top-[300px] block photo2 opacity-100"
         />
@@ -203,15 +218,15 @@ export default function Index() {
             src="/images/palms.png"
             className="absolute left-[-100px] top-[370px] block photo2 opacity-100"
         />
-      <div className="absolute w-full h-full flex flex-col items-center justify-center mt-96">
+      <div className="relative w-full h-full flex flex-col items-center justify-center">
 
-        <div className="flex flex-col mt-96 items-center justify-center h-full w-full px-2 md:px-10">
-          <div className="relative z-1 mt-96 md:max-w-3xl w-full bg-gray-900/90 filter backdrop-blur-sm py-4 rounded-md px-2 md:px-10 flex flex-col items-center">
+        <div className="flex flex-col items-center justify-center h-full w-full px-2 md:px-10">
+          <div className="relative z-1 md:max-w-3xl w-full bg-gray-900/90 filter backdrop-blur-sm py-4 rounded-md px-2 md:px-10 flex flex-col items-center opacity-90">
             
   
             {wallet && (
               <button
-                className="absolute top-[680px] right-4 bg-brand-blue transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-black tracking-wide uppercase"
+                className="absolute right-4 bg-brand-blue transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-black tracking-wide uppercase"
                 onClick={() =>
                   disconnect({
                     label: wallet.label
@@ -221,16 +236,16 @@ export default function Index() {
                 Disconnect
               </button>
             )}
-            <h1 className="font-coiny uppercase font-bold text-4xl md:text-5xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent mt-96">
+            <h1 className="font-coiny uppercase font-bold text-4xl md:text-5xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent">
             <img 
             src="/images/logo_transparent.png"
-            className="photo2 relative left-[10px] absolute top-[200px] block w-full min-h-fit object-cover opacity-90"
+            className="photo7 relative item-center absolute top-[-50px] block w-full min-h-fit object-cover opacity-90"
             />
             </h1>
-            <h1 className="mt-24 font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent mt-3">
+            <h1 className="absolute top-[250px] font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br from-brand-blue to-brand-green bg-clip-text text-transparent">
               {paused ? 'Mint paused' : 'Mint LIVE'}
             </h1>
-            <h3 className="text-sm text-pink-200 tracking-widest mt-4">
+            <h3 className="absolute top-[300px] text-sm text-pink-200 tracking-widest">
               {wallet?.accounts[0]?.address
                 ? wallet?.accounts[0]?.address.slice(0, 8) +
                   '...' +
@@ -238,7 +253,7 @@ export default function Index() {
                 : ''}
             </h3>
 
-            <div className="h-full w-full container max-w-5xl mx-auto flex flex-col items-center pt-4">
+            <div className="absolute top-[325px] h-full w-full container max-w-5xl mx-auto flex flex-col items-center pt-4">
                     <div className="flex flex-col items-center max-w-4xl w-full">
                       <Link href="/mint" passHref>
                         <a className="mt-1 font-coiny uppercase inline-flex items-center px-6 oy-2 text-sm sm:text-2xl md:text-3xl font-medium text-center rounded text-white bg-brand-pink hover:bg-brand-blue hover:text-brand-pink">
@@ -361,7 +376,7 @@ export default function Index() {
                   </button>
                 ) : (
                   <button
-                    className="font-coiny mt-12 w-full bg-gradient-to-br from-brand-purple to-brand-pink shadow-lg px-6 py-3 rounded-md text-2xl text-white hover:shadow-pink-400/50 mx-4 tracking-wide uppercase"
+                    className="z-20 font-coiny mt-12 w-full bg-gradient-to-br from-brand-purple to-brand-pink shadow-lg px-6 py-3 rounded-md text-2xl text-white hover:shadow-pink-400/50 mx-4 tracking-wide uppercase"
                     onClick={() => connect()}
                   >
                     Connect Wallet
@@ -409,7 +424,53 @@ export default function Index() {
                   src="/images/DICE2.png"
                   className="object-cover sm:h-[600px] md:w-[400] rounded-md mt-4"
                 />
-              <h2 className="font-coiny uppercase font-bold text-2xl md:text-3xl text-brand-pink mt-8">
+              <h3 className="font-coiny uppercase font-bold text-2xl md:text-3xl text-brand-pink mt-8">
+                The game
+              </h3>
+                <a className="text-white mt-3">
+                  The game is a story game. A story game is where you read a story, and try to find an information within it, in order to get a reward.
+                </a>
+                <a className="text-white mt-3">
+                  The CyberWojakz story is split over 10 parts.
+                </a>
+                <a className="text-white mt-3">
+                  Each part has can be unlocked under 2 conditions:
+                </a>
+                <a className="text-white mt-3">
+                  1. Finding the password hidden in the previous part
+                </a>
+                <a className="text-white mt-3">
+                  2. Holding the required amount of CyberWojakz NFTs.
+                </a>
+                <a className="text-white mt-3">
+                  How to play the game:
+                </a>
+                <a className="text-white mt-3">
+                  ⇨ Access the first part by holding 1 CyberWojakz NFT
+                </a>
+                <a className="text-white mt-3">
+                  ⇨ Read that part of the story
+                </a>
+                <a className="text-white mt-3">
+                  ⇨ Find the password from that part of the story
+                </a>
+                <a className="text-white mt-3">
+                This will unlock the reward:
+                </a>
+                <a className="text-white mt-3">
+                ✅ 1 Exclusive CyberWojakz NFT
+                </a>
+                <a className="text-white mt-3">
+                  ⇨ Unlock the next part of the story  
+                </a>
+                <a className="text-white mt-3">
+                  ⇨ Hold the required amount of CyberWojakz NFTs to play the next part of the story.
+                </a>
+                <img
+                  src="/images/Game_theory.png"
+                  className="object-cover sm:h-[600px] md:w-[400] rounded-md mt-4"
+                />
+              <h2 className="font-coiny uppercase font-bold text-2xl md:text-3xl text-brand-blue mt-8">
                 ART
               </h2>
               <a className="text-white mt-3">
@@ -423,17 +484,47 @@ export default function Index() {
                 <a className="text-white mt-4">
                   The art design is from the original Wojak meme. Face expressions, backgrounds, accessories, have all been inspired by the Wojak meme icon, simply revisited in a Synthwave style, which we think is cool :)
                 </a>
+                <h3 className="font-coiny uppercase font-bold text-2xl md:text-3xl text-brand-blue mt-8">
+                7 Legendaries
+              </h3>
+              <a className="text-white mt-4">
+                7 super dope legendaries with unique traits are hidden into the mint. 
+              </a>
+              <img
+                  src="/images/legendaries_cyberwojakz.png"
+                  className="object-cover sm:h-[315px] md:w-[315] rounded-md mt-4"
+                />
               <h2 className="font-coiny uppercase font-bold text-2xl md:text-3xl text-brand-pink mt-8">
                 ARPDORI
               </h2>
               <a className="text-white mt-3">
                 ?????
               </a>
-              <h2 className="font-coiny uppercase font-bold text-2xl md:text-3xl text-brand-pink mt-8">
+              <h2 className="font-coiny uppercase font-bold text-2xl md:text-3xl text-brand-blue mt-8">
+                Tokenomics
+              </h2>
+              <img
+                  src="/images/Tokenomics.png"
+                  className="object-cover sm:h-[315px] md:w-[315] rounded-md mt-4"
+                />
+              <a className="text-white mt-3">
+                50% is for the team. After the orignal investment gets reached, funds can be allocated to the project. This allocation for tokenomics is approximative, we intend to BUIDL on the project, in the interest of the community.
+              </a>
+              <a className="text-white mt-3">
+                20% for future developments. We intend to grow our team with new dev(s) to come up with great dapps and smart contracts expertise.
+              </a>
+              <a className="text-white mt-3">
+                20% marketing. Part of the growth of the project, get visbility, reach more people, which grows the community.
+              </a>
+              <a className="text-white mt-3">
+                10% mini games. Allocated for the specific developments of mini games. Mini games are small dapps made for the community, meaning we wont earn anything from it. The goal is to build a nice and warm "CyberWojakz ecosystem", with multiple ways to interact within the project. an example of mini game would be a casino dapp where NPCs can play to earn internet money.
+              </a>
+
+              <h2 className="font-coiny uppercase font-bold text-2xl md:text-3xl text-brand-blue mt-8">
                 METIS FAM
               </h2>
               <a className="text-white mt-3">
-                Metis network is a family. We believe Metis will become a major player in the future, that is why we are here, but also because Metis has built a solid community. We created the CyberWojakz for Metis community. indeed, after all the copycat NFTs released at early stages, we wanted to bring an orignal collection, based on a famous crypto meme currently missing on Metis: the Wojak. We intend to become a meme reference on Metis, building for the community. Many ideas crosses our minds (mini games) to implement as a way for the community to stay engaged with the project but also to create a real interest (basically, the prospect of making money). appart from the main game, the mini games are at the stage of idea, to be developped in coordination with the community.
+                Metis network is a family. We believe Metis will become a major player in the future, that is why we are here, but also because Metis has built a solid community. We created the CyberWojakz for Metis community. indeed, after all the copycat NFTs released at early stages, we wanted to bring an orignal collection, based on a famous crypto meme currently missing on Metis: the Wojak. We intend to become a meme reference on Metis, building for the community. Many ideas crosses our minds (mini games) to implement as a way for the community to stay engaged with the project but also to create a real interest, on top of the actual game. Holders and early comers will always be rewarded first.
               </a>
               <img
                   src="/images/metis.png"
@@ -447,11 +538,16 @@ export default function Index() {
       </div>
       <div className='w-100 h-100'>
       <a href="https://cyberwojakz.io/" target="_blank" rel="noreferrer">
-      <img
+        <img
             src="/images/logo_transparent.png"
-            className="absolute left-[450px] top-[3200px] block photo2 opacity-100"
+            className="absolute left-[450px] top-[5700px] block photo2 opacity-100"
         />
-                </a>
+            
+      </a>
+      <img
+          src="/images/Synthwave_floor2.png"
+          className="animate-pulse-slow left-[0px] item-center absolute top-[5500px] inset-auto block w-full min-h-full object-cover"
+        />
 
                
             </div>
