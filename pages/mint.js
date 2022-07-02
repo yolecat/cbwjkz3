@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
@@ -6,7 +5,7 @@ import {
     getTotalMinted,
   } from '../utils/interact'
 
-  import { ProgressBar } from "react-progressbar-fancy";
+import { ProgressBar } from "react-progressbar-fancy";
 
 export default function Mint() {
 
@@ -27,104 +26,129 @@ export default function Mint() {
     const [Scolor, setScolor] = useState('snow')
     const [rarityLabel, setRarityLabel] = useState('Rarity')
     const [URL, setURL] = useState('https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/562.png')
-    const [ID, setID] = useState('x')
+    const [ID, setID] = useState(0)
 
 
+    const ranking = require('/ranking.json')
 
     // handle form for ranking check
     async function getrare() {
-      const ranking = require('/ranking.json')
-      setTotalMinted(await getTotalMinted())
-      const ID=document.getElementById("forme").value
+      const ID=parseInt(document.getElementById("forme").value)
       setID(ID)
+      console.log(ID)
+      var URL_v
+
+      var in_val
+      var Rank_v
+      var Background_v
+      var Skin_v 
+      var Tattoo_v
+      var Face_v 
+      var Clothes_v
+      var Necklace_v
+      var Eyewear_v
+      var Accessory_v
+      var rarityScore_v
+      var rarityLabel_v
+
       if ( ID < totalMinted
           && ID <=4110
           && ID >=0)
           {
-              var in_val=ID;
-            var Rank_v = ranking.rarity[ID]["Rank"]
-            var Background_v = ranking.rarity[ID]["Background"];
-            var Skin_v = ranking.rarity[ID]["Skin"];
-            var Tattoo_v = ranking.rarity[ID]["Tattoo"];
-            var Face_v = ranking.rarity[ID]["Face"];
-            var Clothes_v = ranking.rarity[ID]["Clothes"];
-            var Necklace_v = ranking.rarity[ID]["Necklace"];
-            var Eyewear_v = ranking.rarity[ID]["Eyewear"];
-            var Accessory_v = ranking.rarity[ID]["Accessory"];
-            var rarityScore_v = ranking.rarity[ID]["Rarity Score"];
+            in_val=ID;
+             Rank_v = ranking.rarity[ID]["Rank"]
+             Background_v = ranking.rarity[ID]["Background"];
+             Skin_v = ranking.rarity[ID]["Skin"];
+             Tattoo_v = ranking.rarity[ID]["Tattoo"];
+             Face_v = ranking.rarity[ID]["Face"];
+             Clothes_v = ranking.rarity[ID]["Clothes"];
+             Necklace_v = ranking.rarity[ID]["Necklace"];
+             Eyewear_v = ranking.rarity[ID]["Eyewear"];
+             Accessory_v = ranking.rarity[ID]["Accessory"];
+             rarityScore_v = ranking.rarity[ID]["Rarity Score"];
+             rarityLabel_v = ' '
+             URL_v = "https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/"+ID+".png";
+
 
           }
-          else if(ID <0
-                  || ID >4110)
+          else if(ID < 0
+                  || ID > 4110)
           {
-            var in_val=ID;
-            var rarityLabel_v = 'input values between 0 and 4110'
-            var Rank_v = 0
-            var Background_v = 0
-            var Skin_v = 0
-            var Tattoo_v = 0
-            var Face_v = 0
-            var Clothes_v = 0
-            var Necklace_v = 0
-            var Eyewear_v = 0
-            var Accessory_v = 0
-            var rarityScore_v= 0
+             in_val=ID;
+             rarityLabel_v = 'input values between 0 and 4110'
+             Rank_v = 0
+             Background_v = 0
+             Skin_v = 0
+             Tattoo_v = 0
+             Face_v = 0
+             Clothes_v = 0
+             Necklace_v = 0
+             Eyewear_v = 0
+             Accessory_v = 0
+             rarityScore_v= 0
+             URL_v = "https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/562.png";
+
           }
-          else if(ID >= totalMinted
+          else if(ID > totalMinted -1
                   && ID <= 4110
                   && ID >= 0)
           {
-            var rarityLabel_v="not minted yet"
-            var in_val=ID;
-            var Rank_v = 0
-            var Background_v = 0
-            var Skin_v = 0
-            var Tattoo_v = 0
-            var Face_v = 0
-            var Clothes_v = 0
-            var Necklace_v = 0
-            var Eyewear_v = 0
-            var Accessory_v = 0
-            var rarityScore_v = 0
+             rarityLabel_v="not minted yet"
+             in_val=ID;
+             Rank_v = 0
+             Background_v = 0
+             Skin_v = 0
+             Tattoo_v = 0
+             Face_v = 0
+             Clothes_v = 0
+             Necklace_v = 0
+             Eyewear_v = 0
+             Accessory_v = 0
+             rarityScore_v = 0
+             URL_v = "https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/562.png";
           }
-
+          var Pcolor_v
+          var Scolor_v
+          var rarityLabel_v
           if (Rank_v <= 4111 && Rank_v > 2000){//1
-            var Pcolor_v="snow";
-            var Scolor_v="snow";
-            var rarityLabel_v = "COMMON"
+             Pcolor_v="snow";
+             Scolor_v="snow";
+             rarityLabel_v = "COMMON"
           }
           else if (Rank_v <= 2000 && Rank_v > 1000){
-            var Pcolor_v="lightgreen";
-            var Scolor_v="lightgreen";
-            var rarityLabel_v = "UNCOMMON"
+             Pcolor_v="lightgreen";
+             Scolor_v="lightgreen";
+             rarityLabel_v = "UNCOMMON"
           }
           else if (Rank_v <= 1000 && Rank_v > 500){
-            var Pcolor_v="blue";
-            var Scolor_v="blue";
-            var rarityLabel_v = "RARE"
+             Pcolor_v="blue";
+             Scolor_v="blue";
+             rarityLabel_v = "RARE"
           }
           else if (Rank_v <= 500 && Rank_v > 41){//2
-            var Pcolor_v="blueviolet"
-            var Scolor_v="blueviolet"
-            var rarityLabel_v = "ULTRA RARE"
+             Pcolor_v="blueviolet"
+             Scolor_v="blueviolet"
+             rarityLabel_v = "ULTRA RARE"
           }
           else if (Rank_v <= 41 && Rank_v >= 7){//34
-            var Pcolor_v="orange"
-            var Scolor_v="orange"
-            var rarityLabel_v = "EPIC"
+             Pcolor_v="orange"
+             Scolor_v="orange"
+             rarityLabel_v = "EPIC"
           }
           else if (Rank_v <= 7 && Rank_v >= 1){//45
-            var Pcolor_v="gold"
-            var Scolor_v="orangered"
-            var rarityLabel_v = "LEGENDARY"
+             Pcolor_v="gold"
+             Scolor_v="orangered"
+             rarityLabel_v = "LEGENDARY"
           }
           else {
-          var Pcolor_v="snow"
-          var Scolor_v="snow"
+           Pcolor_v="snow"
+           Scolor_v="snow"
+           rarityLabel_v = "NOOO"
+           var e=0
+           setID(e)
         }
         var a = document.getElementById("ID1");
         a.style.color = Pcolor_v;
-        var URL_v = "https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/"+ID+".png";
 
       setRank(Rank_v)
       setBackground(Background_v)
@@ -212,7 +236,7 @@ export default function Mint() {
         </a>
                <img
           src="/images/Synthwave_sol.png"
-          className="photo8 left-[20px] bottom-[-450px] absolute inset-auto block w-full min-h-full opacity-70"
+          className="photo8 left-[20px] bottom-[-470px] absolute inset-auto block w-full min-h-full opacity-70"
         />
                 <img
             src="/images/Synthwave_floor2.png"
