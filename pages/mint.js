@@ -51,7 +51,8 @@ export default function Mint() {
       var rarityScore_v
       var rarityLabel_v
 
-      if ( ID < totalMinted
+      if ( Number.isInteger(ID)==true
+          && ID < totalMinted
           && ID <=4110
           && ID >=0)
           {
@@ -71,8 +72,9 @@ export default function Mint() {
 
 
           }
-          else if(ID < 0
-                  || ID > 4110)
+          else if(Number.isInteger(ID)==true
+                  && (ID < 0 || ID > 4110)
+                  )
           {
              in_val=ID;
              rarityLabel_v = 'input values between 0 and 4110'
@@ -89,11 +91,12 @@ export default function Mint() {
              URL_v = "https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/562.png";
 
           }
-          else if(ID > totalMinted -1
+          else if(Number.isInteger(ID)==true
+                  && ID >= totalMinted
                   && ID <= 4110
                   && ID >= 0)
           {
-             rarityLabel_v="not minted yet"
+             rarityLabel_v="Not minted yet"
              in_val=ID;
              Rank_v = 0
              Background_v = 0
@@ -106,6 +109,22 @@ export default function Mint() {
              Accessory_v = 0
              rarityScore_v = 0
              URL_v = "https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/562.png";
+          }
+          else if (Number.isInteger(ID)==false){
+             rarityLabel_v="Input a number"
+             in_val=ID;
+             Rank_v = 0
+             Background_v = 0
+             Skin_v = 0
+             Tattoo_v = 0
+             Face_v = 0
+             Clothes_v = 0
+             Necklace_v = 0
+             Eyewear_v = 0
+             Accessory_v = 0
+             rarityScore_v = 0
+             URL_v = "https://ipfs.io/ipfs/QmUpKATSRkTg4PUKUNuDBEAUSit3yUf4Dxf7PYLfV6R2yB/562.png";
+          
           }
           var Pcolor_v
           var Scolor_v
@@ -143,7 +162,6 @@ export default function Mint() {
           else {
            Pcolor_v="snow"
            Scolor_v="snow"
-           rarityLabel_v = "NOOO"
            var e=0
            setID(e)
         }
@@ -195,7 +213,7 @@ export default function Mint() {
         <div className="relative w-full h-full flex flex-col items-center justify-center z-0">
      
           <div className="flex flex-col mt-[-660px] items-center max-w-4xl w-full absolute z-30">
-            <Link href="/" passHref>
+            <Link href="/home" passHref>
               <a className="mt-0 font-coiny uppercase inline-flex items-center px-6 oy-2 text-sm sm:text-2xl md:text-3xl font-medium text-center rounded text-white bg-brand-blue hover:bg-brand-pink hover:text-brand-blue">
                 Back to mint
                 <svg
@@ -381,7 +399,6 @@ export default function Mint() {
             </div>
             </div>
         </div>
-            <p>   </p>
         </div>
 
       </>
